@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency('fog', ">= 1.8.0")
   s.add_dependency('unf')
   s.add_dependency('activemodel')
+  s.add_dependency('thread', '>= 0.2.0')
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "bundler"

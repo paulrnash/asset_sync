@@ -359,6 +359,10 @@ With the new **user_env_compile** feature of Heroku (see above), this is no long
 
 > To prevent this part of the deploy from failing (asset_sync raising a config error), but carry on as normal set `fail_silently` to true in your configuration and ensure to run `heroku run rake assets:precompile` after deploy.
 
+## Concurrent Uploads
+
+With the `max_concurrent_uploads` option set to a value greater than 1, AssetSync will use a thread pool to run uploads in parallel. This can greatly increase your upload speed in some cases, depending on your network connection.
+
 ## Rake Task
 
 A rake task is included within the **asset_sync** gem to perform the sync:

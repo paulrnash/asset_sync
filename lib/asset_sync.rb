@@ -9,3 +9,5 @@ require 'asset_sync/multi_mime'
 
 require 'asset_sync/railtie' if defined?(Rails)
 require 'asset_sync/engine'  if defined?(Rails)
+
+require 'thread/pool'

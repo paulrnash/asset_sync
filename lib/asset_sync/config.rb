@@ -19,6 +19,7 @@ module AssetSync
     attr_accessor :run_on_precompile
     attr_accessor :invalidate
     attr_accessor :cdn_distribution_id
+    attr_accessor :max_concurrent_uploads
 
     # FOG configuration
     attr_accessor :fog_provider          # Currently Supported ['AWS', 'Rackspace']
@@ -45,6 +46,8 @@ module AssetSync
     validates :rackspace_api_key,     :presence => true, :if => :rackspace?
     validates :google_storage_secret_access_key,  :presence => true, :if => :google?
     validates :google_storage_access_key_id,      :presence => true, :if => :google?
+    
+    validates :max_concurrent_uploads,  :numericality => { :greater_than_or_equal_to => 1, :only_integer => true }
 
     def initialize
       self.fog_region = nil
@@ -59,6 +62,7 @@ module AssetSync
       self.enabled = true
       self.run_on_precompile = true
       self.cdn_distribution_id = nil
+      self.max_concurrent_uploads = 1
       self.invalidate = []
       load_yml! if defined?(Rails) && yml_exists?
     end
@@ -158,6 +162,7 @@ module AssetSync
       self.run_on_precompile      = yml["run_on_precompile"] if yml.has_key?("run_on_precompile")
       self.invalidate             = yml["invalidate"] if yml.has_key?("invalidate")
       self.cdn_distribution_id    = yml['cdn_distribution_id'] if yml.has_key?("cdn_distribution_id")
+      self.max_concurrent_uploads = yml['max_concurrent_uploads'] if yml.has_key?("max_concurrent_uploads")
 
       # TODO deprecate the other old style config settings. FML.
       self.aws_access_key_id      = yml["aws_access_key"] if yml.has_key?("aws_access_key")

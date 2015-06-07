@@ -214,11 +214,17 @@ module AssetSync
       local_files_to_upload = local_files - ignored_files - remote_files + always_upload_files
       local_files_to_upload = (local_files_to_upload + get_non_fingerprinted(local_files_to_upload)).uniq
 
+      # For simplicity, execution of uploads always uses a thread pool, but concurrency can be disabled
+      # by setting the max size to 1, which is effectively "no threading".
+      pool = Thread.pool(1, self.config.max_concurrent_uploads)
+
       # Upload new files
       local_files_to_upload.each do |f|
         next unless File.file? "#{path}/#{f}" # Only files.
-        upload_file f
+        pool.process { upload_file f }
       end
+
+      pool.shutdown
 
       if self.config.cdn_distribution_id && files_to_invalidate.any?
         log "Invalidating Files"

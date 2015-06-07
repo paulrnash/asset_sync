@@ -24,8 +24,10 @@ defaults: &defaults
   # existing_remote_files: delete
   # Automatically replace files with their equivalent gzip compressed version
   # gzip_compression: true
-  # Fail silently.  Useful for environments such as Heroku
+  # Fail silently. Useful for environments such as Heroku
   # fail_silently: true
+  # Concurrent uploads. Allow more than one file to upload in parallel if set > 1.
+  # max_concurrent_uploads: 1
 
 development:
   <<: *defaults

@@ -36,6 +36,10 @@ AssetSync.configure do |config|
   # upload instead of searching the assets directory.
   # config.manifest = true
   #
-  # Fail silently.  Useful for environments such as Heroku
+  # Fail silently. Useful for environments such as Heroku
   # config.fail_silently = true
+  #
+  # Max concurrent uploads. Defaults to 1 Set this greater than 1 to speed
+  # up uploads by using multiple threads.
+  # config.max_concurrent_uploads = 1
 end
