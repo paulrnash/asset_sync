@@ -13,3 +13,4 @@ spec/dummy_app/tmp/*
 gemfiles/*.lock
 .rvmrc
 .idea
+application.yml
