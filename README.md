@@ -10,28 +10,36 @@ bucket, optionally deleting unused files and only uploading the files it needs t
 
 This was initially built and is intended to work on [Heroku](http://heroku.com) but can work on any platform.
 
+neo-asset_sync is a fork of the original rumblelabs project because that one doesn't seem to be maintaind anymore
+
 ## Upgrading?
 
-If you are upgrading from a version of asset_sync **< 0.2.0** (i.e. 0.1.x). All of the references to config variables have changed to reference those used in **Fog**. Ensure to backup your `asset_sync.rb` or `asset_sync.yml` files and re-run the generator. You may also then need to update your ENV configuration variables (or you can change the ones that are referenced).
+If you are upgrading from a version of rumblelabs/asset_sync **< 0.2.0** (i.e. 0.1.x). All of the references to config variables have changed to reference those used in **Fog**. Ensure to backup your `asset_sync.rb` or `asset_sync.yml` files and re-run the generator. You may also then need to update your ENV configuration variables (or you can change the ones that are referenced).
 
 ## Installation
 
 Add the gem to your Gemfile
 
 ``` ruby
-gem 'asset_sync'
+gem 'neo-asset_sync'
 ```
 
 ### Optimized Fog loading
 
-Since AssetSync doesn't know which parts of Fog you intend to use, it will just load the entire library.
-If you prefer to load fewer classes into your application, which will reduce load time and memory use,
+AssetSync now only tries to load fog-aws to load fewer classes into your application, which will reduce load time and memory use,
 you need to load those parts of Fog yourself *before* loading AssetSync:
 
 In your Gemfile:
 ```ruby
-gem "fog", "~>1.20", require: "fog/aws/storage"
-gem "asset_sync"
+gem "fog-aws"
+gem "neo-asset_sync"
+```
+
+If you're trying to use google or rackspace, load those portions of fog first.
+
+```ruby
+gem "fog-google"
+gem "neo-asset_sync"
 ```
 
 ### Extended Installation (Faster sync with turbosprockets)
@@ -101,7 +109,7 @@ Additionally, if you depend on any configuration that is setup in your `initiali
 
 **AssetSync** supports the following methods of configuration.
 
-* [Built-in Initializer](https://github.com/rumblelabs/asset_sync/blob/master/lib/asset_sync/engine.rb) (configured through environment variables)
+* [Built-in Initializer](https://github.com/paulrnash/asset_sync/blob/master/lib/asset_sync/engine.rb) (configured through environment variables)
 * Rails Initializer
 * A YAML config file
 
@@ -361,7 +369,7 @@ With the new **user_env_compile** feature of Heroku (see above), this is no long
 
 ## Rake Task
 
-A rake task is included within the **asset_sync** gem to perform the sync:
+A rake task is included within the **neo-asset_sync** gem to perform the sync:
 
 ``` ruby
   namespace :assets do
@@ -450,7 +458,11 @@ Make sure the bucket has read/write permissions.  Then to run the tests:-
 
 ## Credits
 
-Inspired by:
+Forked from:
+
+ - [https://github.com/rumblelabs/asset_sync] (https://github.com/rumblelabs/asset_sync)
+
+...which was inspired by:
 
  - [https://github.com/moocode/asset_id](https://github.com/moocode/asset_id)
  - [https://gist.github.com/1053855](https://gist.github.com/1053855)
@@ -458,3 +470,4 @@ Inspired by:
 ## License
 
 MIT License. Copyright 2011-2013 Rumble Labs Ltd. [rumblelabs.com](http://rumblelabs.com)
+MIT License. Copyright 2015 Paul R. Nash
