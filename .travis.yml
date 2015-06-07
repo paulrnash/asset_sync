@@ -1,42 +1,43 @@
 language: ruby
 rvm:
-  - 1.9.2
-  - 1.9.3
-  - jruby-19mode
-  - rbx-2
-  - ruby-head
-  - jruby-head
+- 1.9.2
+- 1.9.3
+- jruby-19mode
+- rbx-2
+- ruby-head
+- jruby-head
 gemfile:
-  - gemfiles/rails_3.1.gemfile
-  - gemfiles/rails_3.2.gemfile
+- gemfiles/rails_3.1.gemfile
+- gemfiles/rails_3.2.gemfile
 before_install:
-  - gem install bundler
+- gem install bundler
 env:
   global:
-    - FOG_DIRECTORY=asset-sync-travis
-    - FOG_PROVIDER=AWS
-    - secure: "dy8Fqlg3b1ZMK1BY5z6NMQLbzAVd7GWVYY0MeCQALz76zRac0z8MyU8hkv6h\nozFry7DSdbGehGT9foOnkWTwzGzf1rzdd5cmWrUPk1wDTRgMM9SrwodPj1TU\nzsq2EFx0a79vADQN8JXkpLC1YD6kEb9aWkTxrIT9KBgw+J5H32o="
-    - secure: "Hmx7D7/p2LlA2ya/xBIz21s/8MLIQCjvfYB7RWBNlWk1PfqRLAz8wX6TUVWy\nfAFktMjLnpRLRYO7AgQS4jcfQ/k0HYK9IXzqXzeI00TNm0Vwp0TCXhawiOFT\nSvUMhs2/1vRfjN0HOJ75XlWRhJzV/G5rOMiafAZLsVzN/0iiB8g="
+  - FOG_DIRECTORY=neo-asset-sync-travis
+  - FOG_PROVIDER=AWS
+  - AWS_REGION=us-west-2
+  - secure: TyXq4T/yD02NWWvqGOvjoM2fDgq/vnfJO3vPph8R8kumd2HaGuHkRFbLzrNcY0UJzR/kLW0RafkblIyHBZBooa+TY2szGTIQLf20B0V9Xix0+KT6LdlfhV3XuRrj9RCdoowssMtw9mdHxF3ZEEo/0DPLYZdxWw7qJYKDuqiomZr+VCYMKo0/DqGp+jSdRC/Wsi1rXeponl/BdYe6tJQ+aDBACFjjWZufg/nSks1xIxgEzlfBntiC1YIgUXrAqZ4fLL/xBoGid4mL9vX8DJiKgFyVWMXwNSpX9QE9oGdjiIX5IO2nELoMz/7dFxmiuokE07bnVGvknfxfuP00HS109L7IoJwb1xa5Cw7Vd+5cHPiIsdl1SFnp2wRGEe37un/m7D8rC0/Bf+2X/0MVNrnbjwDZvYFVCRdx4B4GEo+OINpyxVThUHRqyL1sS4yAlRX2MwonSo4b2MfIDdMG09CJN3i8zdQhDjuepmYRnU3y/8CiD3ILeIw0G1LTuCEbtA73kDErWeo6t6EDWLZxaOqG2ZNE8IsnmpPOBQfDB3n7GhU/lf7UH3cA+kOdzYDjsklk40LkhpfAo7wUa+h3CXwpPaZqFuH9S5/wEYir6zR4hdBvwt+XlxG6CPDyEGAn6Nfq/lyPmxK7k3kGxOoB3qyYqINDPQjD4lCfNQpUCyD+0KY=
+  - secure: Kdlm8ymZ6ngfPLFkLBWR+jzSALoIiKNyksAv2Ei9wcL5f7fXzmo+yy29FOJRGmutRRn5U/7lsjTOTTHMGF+6gc7fBRWTsrPZxl9EMj7gO3Zn7jwTvCYmitXYleAR+RNg1NK2TFD/UzelfaXDKwhQ52VPiYDuw55OoVCxyppClVukqytDWmP6tCdjjlH2FhcpWGfe009zqwBxwZYkrJtzB9BDlAsoSKZ1c3eYUnbF16aVvc1U4gXp0AZ/vj+tWhDCDkVH98/ys9kHcB2tkRaI/HPURhuWAQvYe7JUfPbQHWJqaIJ5KK8s4Q5p0ovZQNY48OBgi8eMJwzzB4DixO2ej69Lyg6ZafR+Rs/yeVZZv2lbtxyE0f1/kZwTJg1VQbv/JMdZPz5Vuyd2T0YlfWMgUszCZNHtaXw8BUxmJEPO6WlQiDqwzKnBgIb439PH6LBQO7vGUcMgKtu3KqI3eAyUG1tdycfm/yjfqve9vstewCo7ySBksvtmuCtbR8lWeu/4hpqjY3Vz/MgJJ8BVtGvpGoaABwp44BjR4UTb00IHl7OpEEEe71XXps2ZHm8nRxesa9R4OFwbDYlKk7twP815VRiIkHkXrJXc20CP3Gik8y2XORx6hFzeS6La00Q2t9imG1R9m1qNIwM0r0luhSNl0e4GYo4ngjMMloQJ5gC8fSY=
 matrix:
   include:
-    - rvm: 1.9.3
-      gemfile: gemfiles/rails_4.0.gemfile
-    - rvm: jruby-19mode
-      gemfile: gemfiles/rails_4.0.gemfile
-    - rvm: rbx-2
-      gemfile: gemfiles/rails_4.0.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails_3.2.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails_4.0.gemfile
-    - rvm: 2.1.2
-      gemfile: gemfiles/rails_4.1.gemfile
-    - rvm: 2.0.0
-      gemfile: gemfiles/rails_4.1.gemfile
-    - rvm: 2.1.2
-      gemfile: gemfiles/rails_4.1.gemfile
+  - rvm: 1.9.3
+    gemfile: gemfiles/rails_4.0.gemfile
+  - rvm: jruby-19mode
+    gemfile: gemfiles/rails_4.0.gemfile
+  - rvm: rbx-2
+    gemfile: gemfiles/rails_4.0.gemfile
+  - rvm: 2.0.0
+    gemfile: gemfiles/rails_3.2.gemfile
+  - rvm: 2.0.0
+    gemfile: gemfiles/rails_4.0.gemfile
+  - rvm: 2.1.2
+    gemfile: gemfiles/rails_4.1.gemfile
+  - rvm: 2.0.0
+    gemfile: gemfiles/rails_4.1.gemfile
+  - rvm: 2.1.2
+    gemfile: gemfiles/rails_4.1.gemfile
   allow_failures:
-    - rvm: 1.9.2
-    - rvm: rbx-2
-    - rvm: ruby-head
-    - rvm: jruby-head
+  - rvm: 1.9.2
+  - rvm: rbx-2
+  - rvm: ruby-head
+  - rvm: jruby-head
