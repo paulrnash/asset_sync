@@ -1,7 +1,7 @@
 language: ruby
 rvm:
-- 1.9.2
-#- 1.9.3
+#- 1.9.2
+- 1.9.3
 #- jruby-19mode
 #- rbx-2
 - ruby-head
@@ -40,8 +40,12 @@ matrix:
     gemfile: gemfiles/rails_4.1.gemfile
   - rvm: 2.1.2
     gemfile: gemfiles/rails_4.2.gemfile
+  - rvm: 2.2.1
+    gemfile: gemfiles/rails_4.1.gemfile
+  - rvm: 2.2.1
+    gemfile: gemfiles/rails_4.2.gemfile
   allow_failures:
   - rvm: 1.9.2
   - rvm: rbx-2
-  - rvm: ruby-head
+#  - rvm: ruby-head
   - rvm: jruby-head
