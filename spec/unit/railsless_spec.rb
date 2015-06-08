@@ -48,7 +48,7 @@ describe AssetSync do
       expect(AssetSync.config.aws_secret_access_key).to eq("bbbb")
     end
 
-    it "should configure aws_access_key" do
+    it "should configure fog_directory" do
       expect(AssetSync.config.fog_directory).to eq("mybucket")
     end
 
@@ -58,6 +58,10 @@ describe AssetSync do
 
     it "should configure existing_remote_files" do
       expect(AssetSync.config.existing_remote_files).to eq("keep")
+    end
+
+    it "should configure prefix" do
+      expect(AssetSync.config.prefix).to eq("assets")
     end
 
     it "should default gzip_compression to false" do
