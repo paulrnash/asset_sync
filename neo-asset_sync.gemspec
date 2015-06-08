@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 
-require "asset_sync/version"
+require "neo-asset_sync/version"
 
 Gem::Specification.new do |s|
   s.name        = "neo-asset_sync"

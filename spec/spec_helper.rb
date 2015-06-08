@@ -20,7 +20,7 @@ end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'asset_sync'
+require 'neo-asset_sync'
 
 require 'rspec'
 RSpec.configure do |config|
