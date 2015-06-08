@@ -1,4 +1,4 @@
-The following issues are currently present in Heroku if you are not following the steps outlined in the main [README](http://github.com/rumblelabs/asset_sync)
+The following issues are currently present in Heroku if you are not following the steps outlined in the main [README](http://github.com/paulrnash/asset_sync)
 
 ## KNOWN ISSUES (IMPORTANT)
 
