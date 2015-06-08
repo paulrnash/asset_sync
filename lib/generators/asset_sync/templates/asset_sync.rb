@@ -36,6 +36,6 @@ AssetSync.configure do |config|
   # upload instead of searching the assets directory.
   # config.manifest = true
   #
-  # Fail silently.  Useful for environments such as Heroku
+  # Fail silently. Useful for environments such as Heroku
   # config.fail_silently = true
 end
