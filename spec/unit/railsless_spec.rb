@@ -15,6 +15,7 @@ describe AssetSync do
         config.existing_remote_files = "keep"
         config.prefix = "assets"
         config.public_path = Pathname("./public")
+        config.max_concurrent_uploads = 1
       end
     end
 
@@ -62,6 +63,10 @@ describe AssetSync do
 
     it "should configure prefix" do
       expect(AssetSync.config.prefix).to eq("assets")
+    end
+
+    it "should configure max_concurrent_uploads" do
+      expect(AssetSync.config.max_concurrent_uploads).to eq(20)
     end
 
     it "should default gzip_compression to false" do
