@@ -1,13 +1,13 @@
 language: ruby
 rvm:
 - 1.9.2
-- 1.9.3
-- jruby-19mode
-- rbx-2
+#- 1.9.3
+#- jruby-19mode
+#- rbx-2
 - ruby-head
-- jruby-head
+#- jruby-head
 gemfile:
-- gemfiles/rails_3.1.gemfile
+#- gemfiles/rails_3.1.gemfile
 - gemfiles/rails_3.2.gemfile
 before_install:
 - gem install bundler
@@ -22,10 +22,10 @@ matrix:
   include:
   - rvm: 1.9.3
     gemfile: gemfiles/rails_4.0.gemfile
-  - rvm: jruby-19mode
-    gemfile: gemfiles/rails_4.0.gemfile
-  - rvm: rbx-2
-    gemfile: gemfiles/rails_4.0.gemfile
+#  - rvm: jruby-19mode
+#    gemfile: gemfiles/rails_4.0.gemfile
+#  - rvm: rbx-2
+#    gemfile: gemfiles/rails_4.0.gemfile
   - rvm: 2.0.0
     gemfile: gemfiles/rails_3.2.gemfile
   - rvm: 2.0.0
