@@ -42,7 +42,7 @@ describe "AssetSync" do
     end
   end
 
-  it "sync" do
+  it "should sync" do
     execute "rake ASSET_SYNC_PREFIX=#{@prefix} assets:precompile"
 
     files = bucket(@prefix).files
@@ -58,12 +58,12 @@ describe "AssetSync" do
     expect(app_js_gz.content_encoding).to eq("gzip")
   end
 
-  it "sync with enabled=false" do
+  it "should not sync with enabled=false" do
     execute "rake ASSET_SYNC_PREFIX=#{@prefix} ASSET_SYNC_ENABLED=false assets:precompile"
     expect(bucket(@prefix).files.size).to eq(0)
   end
 
-  it "sync with gzip_compression=true" do
+  it "should sync with gzip_compression=true" do
     execute "rake ASSET_SYNC_PREFIX=#{@prefix} ASSET_SYNC_GZIP_COMPRESSION=true assets:precompile"
     # bucket(@prefix).files.size.should == 3
 
