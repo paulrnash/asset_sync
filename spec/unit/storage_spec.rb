@@ -1,5 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+require 'mime/types'
+
 describe AssetSync::Storage do
   include_context "mock Rails without_yml"
 
@@ -136,10 +138,10 @@ describe AssetSync::Storage do
     before(:each) do
       # Object#remove_const does not remove the loaded
       # file from the $" variable
-      Object.send(:remove_const, :MIME) if defined?(MIME)
-      mime_types = $".grep(/mime\/types/).first
-      $".delete(mime_types)
-      require 'mime/types'
+      #Object.send(:remove_const, :MIME) if defined?(MIME)
+      #mime_types = $".grep(/mime\/types/).first
+      #$".delete(mime_types)
+      #require 'mime/types'
       @config = AssetSync::Config.new
     end
 
@@ -188,7 +190,7 @@ describe AssetSync::Storage do
     end
 
     after(:each) do
-      Object.send(:remove_const, :MIME) if defined?(MIME)
+      #Object.send(:remove_const, :MIME) if defined?(MIME)
     end
   end
 end
