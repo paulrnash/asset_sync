@@ -11,7 +11,7 @@ describe AssetSync do
         config.aws_access_key_id = 'aaaa'
         config.aws_secret_access_key = 'bbbb'
         config.fog_directory = 'mybucket'
-        config.fog_region = 'us-west-2'
+        config.fog_region = 'us-east-1'
         config.existing_remote_files = "keep"
       end
     end
@@ -42,12 +42,12 @@ describe AssetSync do
       expect(AssetSync.config.aws_secret_access_key).to eq("bbbb")
     end
 
-    it "should configure aws_access_key" do
+    it "should configure aws_fog_directory" do
       expect(AssetSync.config.fog_directory).to eq("mybucket")
     end
 
     it "should configure fog_region" do
-      expect(AssetSync.config.fog_region).to eq("us-west-2")
+      expect(AssetSync.config.fog_region).to eq("us-east-1")
     end
 
     it "should configure existing_remote_files" do
@@ -103,7 +103,7 @@ describe AssetSync do
     end
 
     it "should configure fog_region" do
-      expect(AssetSync.config.fog_region).to eq("us-west-2")
+      expect(AssetSync.config.fog_region).to eq("us-east-1")
     end
 
     it "should configure existing_remote_files" do
