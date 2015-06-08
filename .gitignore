@@ -6,6 +6,7 @@ pkg/*
 *.swp
 coverage/*
 .env
+.env.*
 spec/dummy_app/public/*
 spec/dummy_app/log/*
 spec/dummy_app/tmp/*
@@ -13,3 +14,4 @@ spec/dummy_app/tmp/*
 gemfiles/*.lock
 .rvmrc
 .idea
+application.yml

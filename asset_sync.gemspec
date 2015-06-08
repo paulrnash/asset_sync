@@ -4,21 +4,21 @@ $:.push File.expand_path("../lib", __FILE__)
 require "asset_sync/version"
 
 Gem::Specification.new do |s|
-  s.name        = "asset_sync"
+  s.name        = "neo-asset_sync"
   s.version     = AssetSync::VERSION
-  s.date        = "2013-08-26"
+  s.date        = "2015-06-07"
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Simon Hamilton", "David Rice", "Phil McClure", "Toby Osbourn"]
-  s.email       = ["shamilton@rumblelabs.com", "me@davidjrice.co.uk", "pmcclure@rumblelabs.com", "tosbourn@rumblelabs.com"]
-  s.homepage    = "https://github.com/rumblelabs/asset_sync"
-  s.summary     = %q{Synchronises Assets in a Rails 3 application and Amazon S3/Cloudfront and Rackspace Cloudfiles}
-  s.description = %q{After you run assets:precompile your compiled assets will be synchronised with your S3 bucket.}
+  s.authors     = ["Paul R. Nash"]
+  s.email       = ["prnash@gmail.com"]
+  s.homepage    = "https://github.com/paulrnash/asset_sync"
+  s.summary     = %q{Synchronizes Assets in a Rails 3/4 application and Amazon S3/Cloudfront, Google Cloud Storage and Rackspace Cloudfiles}
+  s.description = %q{After you run assets:precompile your compiled assets will be synchronised with your S3 bucket. This is a fork of rumblelabs/asset_sync which has gone quiet.}
 
   s.license = 'MIT'
 
-  s.rubyforge_project = "asset_sync"
+  s.rubyforge_project = "neo-asset_sync"
 
-  s.add_dependency('fog', ">= 1.8.0")
+  s.add_dependency('fog-aws', '~> 0.4', '>= 0.4.0')
   s.add_dependency('unf')
   s.add_dependency('activemodel')
   s.add_dependency('thread', '>= 0.2.0')

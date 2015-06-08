@@ -2,7 +2,7 @@ defaults: &defaults
   fog_provider= "AWS"
   aws_access_key_id: "xxxx"
   aws_secret_access_key: "zzzz"
-  region: "eu-west-1"
+  region: "us-west-2"
 
 development:
   <<: *defaults
