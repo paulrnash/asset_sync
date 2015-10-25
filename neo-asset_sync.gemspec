@@ -7,7 +7,7 @@ require "zlib"
 Gem::Specification.new do |s|
   s.name        = "neo-asset_sync"
   s.version     = AssetSync::VERSION
-  s.date        = "2015-06-07"
+  s.date        = "2015-10-24"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Paul R. Nash"]
   s.email       = ["prnash@gmail.com"]
