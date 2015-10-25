@@ -27,6 +27,12 @@ RSpec.configure do |config|
   config.mock_framework = :rspec
 end
 
+# Newer excons have dropped root CA certs for RSA-1024, but AWS is behind the times so their cert still uses
+# RSA-1024 and can't be verified. So, for now at least for these tests we have to turn off SSL peer verification.
+#
+require 'excon'
+Excon.defaults[:ssl_verify_peer] = false
+
 shared_context "mock without Rails" do
   before(:each) do
     if defined? Rails
