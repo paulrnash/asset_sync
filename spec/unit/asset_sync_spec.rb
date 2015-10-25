@@ -1,5 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+RSpec::Expectations.configuration.warn_about_potential_false_positives = false
+
 describe AssetSync do
   include_context "mock Rails without_yml"
 
